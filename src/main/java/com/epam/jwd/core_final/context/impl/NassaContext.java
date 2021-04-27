@@ -26,7 +26,7 @@ public class NassaContext implements ApplicationContext {
     private final Collection<FlightMission> missions = new ArrayList<>();
 
     private final Reader READER = Reader.getInstance();
-    private final ApplicationProperties APP_PROPERTIES = (ApplicationProperties) PropertyReaderUtil.getProperties().get("applicationProperty");
+    private final ApplicationProperties APP_PROPERTIES = (ApplicationProperties) PropertyReaderUtil.getProperties().get("applicationProperties");
 
     private static NassaContext instance;
 

@@ -1,19 +1,24 @@
 package com.epam.jwd.core_final;
 
-import com.epam.jwd.core_final.context.impl.NassaContext;
+import com.epam.jwd.core_final.context.Application;
+import com.epam.jwd.core_final.context.ApplicationMenu;
+import com.epam.jwd.core_final.exception.ApplicationPropertiesException;
 import com.epam.jwd.core_final.exception.InvalidStateException;
-import com.epam.jwd.core_final.util.PropertyReaderUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Main {
+    private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
-        //Application.start();
-        PropertyReaderUtil.loadProperties();
-        NassaContext context = NassaContext.getInstance();
+        ApplicationMenu menu = null;
         try {
-            context.init();
-        } catch (InvalidStateException e) {
-            e.printStackTrace();
+            menu = Application.start();
+        } catch (InvalidStateException | ApplicationPropertiesException e) {
+            LOGGER.error(e.getMessage(), e);
+            System.exit(1);
         }
+        menu.printAvailableOptions();
+
     }
 }

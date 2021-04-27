@@ -51,7 +51,7 @@ public final class PropertyReaderUtil {
         builder.setFileRefreshRate(Integer.parseInt(PROPERTIES.getProperty("fileRefreshRate")));
         builder.setDateTimeFormat(PROPERTIES.getProperty("dateTimeFormat"));
         ApplicationProperties applicationProperties = builder.buildApplicationProperties();
-        PROPERTIES.put("applicationProperty", applicationProperties);
+        PROPERTIES.put("applicationProperties", applicationProperties);
     }
 
 }
