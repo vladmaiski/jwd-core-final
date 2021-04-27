@@ -1,0 +1,4 @@
+2021-04-26 20:17:38,075 INFO [com.epam.jwd.core_final.util.PropertyReaderUtil] Loading application properties
+2021-04-26 20:17:41,871 ERROR [com.epam.jwd.core_final.strategy.impl.SpaceshipReaderStrategy] This entityWolfis already consist
+2021-04-26 20:18:22,343 INFO [com.epam.jwd.core_final.util.PropertyReaderUtil] Loading application properties
+2021-04-26 20:18:24,647 ERROR [com.epam.jwd.core_final.strategy.impl.SpaceshipReaderStrategy] This entityWolfis already consist
