@@ -3,6 +3,7 @@ package com.epam.jwd.core_final.decorator.impl;
 import com.epam.jwd.core_final.decorator.api.EntityAbstractDecorator;
 import com.epam.jwd.core_final.decorator.api.EntityPostProcessor;
 import com.epam.jwd.core_final.domain.FlightMission;
+import com.epam.jwd.core_final.exception.AssignOnMissionException;
 import com.epam.jwd.core_final.factory.EntityFactory;
 
 import java.util.Arrays;
@@ -18,7 +19,7 @@ public class PostProcessingFlightMissionFactoryDecorator extends EntityAbstractD
     }
 
     @Override
-    public FlightMission create(Object... args) {
+    public FlightMission create(Object... args) throws AssignOnMissionException {
         FlightMission flightMission = factory.create(args);
         for (EntityPostProcessor<FlightMission> postProcessor : postProcessors) {
             flightMission = postProcessor.process(flightMission);

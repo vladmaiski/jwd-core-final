@@ -4,7 +4,7 @@ import com.epam.jwd.core_final.context.impl.NassaContext;
 import com.epam.jwd.core_final.criteria.CrewMemberCriteria;
 import com.epam.jwd.core_final.criteria.Criteria;
 import com.epam.jwd.core_final.domain.CrewMember;
-import com.epam.jwd.core_final.exception.AssignedOnMissionException;
+import com.epam.jwd.core_final.exception.AssignOnMissionException;
 import com.epam.jwd.core_final.exception.DuplicateEntityException;
 import com.epam.jwd.core_final.service.CrewService;
 
@@ -72,14 +72,14 @@ public class SimpleCrewService implements CrewService {
     }
 
     @Override
-    public void assignCrewMemberOnMission(CrewMember crewMember) throws AssignedOnMissionException {
+    public void assignCrewMemberOnMission(CrewMember crewMember) throws AssignOnMissionException {
         if (crewMember == null) {
             throw new IllegalArgumentException("Crew member can not be a null");
         }
         if (crewMember.isReadyForNextMissions()) {
             crewMember.setReadyForNextMissions(false);
         } else {
-            throw new AssignedOnMissionException("Crew member already on mission - " + crewMember);
+            throw new AssignOnMissionException("Crew member already on mission - " + crewMember);
         }
     }
 

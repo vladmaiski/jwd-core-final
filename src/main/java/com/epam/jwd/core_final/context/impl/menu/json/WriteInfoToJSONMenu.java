@@ -99,5 +99,4 @@ public class WriteInfoToJSONMenu {
         LOGGER.info("Output info about missions to " + outputRootDir);
     }
 
-
 }

@@ -5,7 +5,7 @@ import com.epam.jwd.core_final.context.impl.NassaContext;
 import com.epam.jwd.core_final.decorator.impl.PostProcessingFlightMissionFactoryDecorator;
 import com.epam.jwd.core_final.domain.FlightMission;
 import com.epam.jwd.core_final.domain.MissionResult;
-import com.epam.jwd.core_final.exception.AssignedOnMissionException;
+import com.epam.jwd.core_final.exception.AssignOnMissionException;
 import com.epam.jwd.core_final.factory.impl.FlightMissionFactory;
 import com.epam.jwd.core_final.service.impl.SimpleMissionService;
 import org.slf4j.Logger;
@@ -17,17 +17,16 @@ import java.util.Random;
 
 public class AddNewMissionMenu {
     private static final SimpleMissionService MISSION_SERVICE = SimpleMissionService.getInstance();
-    private static final NassaContext NASSA_CONTEXT = NassaContext.getInstance();
     private static final PostProcessingFlightMissionFactoryDecorator MISSION_FACTORY = new PostProcessingFlightMissionFactoryDecorator(FlightMissionFactory.getInstance());
     private static final Logger LOGGER = LoggerFactory.getLogger(AddNewMissionMenu.class);
 
     public static void createNewMission() {
+        MISSION_SERVICE.receiveRandomResultOfMissions();
+
         String missionName;
         Long missionDistance;
         LocalDateTime startDate;
         LocalDateTime endDate;
-
-        receiveRandomResultOfMissions();
 
         System.out.println("Enter the name of the mission: ");
         missionName = ApplicationMenu.SCANNER.nextLine();
@@ -37,8 +36,9 @@ public class AddNewMissionMenu {
         endDate = startDate.plusDays(missionDistance / 5000);
         try {
             MISSION_SERVICE.createMission(MISSION_FACTORY.create(missionName, startDate, endDate, missionDistance));
-        } catch (IllegalArgumentException | AssignedOnMissionException e) {
+        } catch (IllegalArgumentException | AssignOnMissionException e) {
             LOGGER.error(e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 
@@ -47,28 +47,4 @@ public class AddNewMissionMenu {
         return (long) ApplicationMenu.receiveUserChoose();
     }
 
-
-    private static void receiveRandomResultOfMissions() {
-        Collection<FlightMission> listOfMissions = NASSA_CONTEXT.retrieveBaseEntityList(FlightMission.class);
-        for (FlightMission flightMission : listOfMissions) {
-            if (flightMission.getMissionResult() != MissionResult.COMPLETED) {
-                receiveStatusOfMission(flightMission);
-            }
-        }
-    }
-
-    private static void receiveStatusOfMission(FlightMission flightMission) {
-        Random random = new Random();
-        if (random.nextInt(100) <= 20) {
-            flightMission.setMissionResult(MissionResult.FAILED);
-        } else {
-            completedMission(flightMission);
-        }
-    }
-
-    private static void completedMission(FlightMission flightMission) {
-        flightMission.setMissionResult(MissionResult.COMPLETED);
-        flightMission.getAssignedSpaceship().setReadyForNextMissions(true);
-        flightMission.getAssignedCrew().forEach(crewMember -> crewMember.setReadyForNextMissions(true));
-    }
 }

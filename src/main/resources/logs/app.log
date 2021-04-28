@@ -1,2 +1,6 @@
-2021-04-28 17:28:49,726 INFO [com.epam.jwd.core_final.util.PropertyReaderUtil] Loading application properties
-2021-04-28 17:28:49,786 ERROR [com.epam.jwd.core_final.strategy.impl.SpaceshipReaderStrategy] Entity Wolf already exist
+2021-04-28 19:06:23,523 INFO [com.epam.jwd.core_final.util.PropertyReaderUtil] Loading application properties
+2021-04-28 19:06:23,571 ERROR [com.epam.jwd.core_final.strategy.impl.SpaceshipReaderStrategy] Entity Wolf already exist
+2021-04-28 19:12:06,192 INFO [com.epam.jwd.core_final.util.PropertyReaderUtil] Loading application properties
+2021-04-28 19:12:06,229 ERROR [com.epam.jwd.core_final.strategy.impl.SpaceshipReaderStrategy] Entity Wolf already exist
+2021-04-28 19:14:55,340 INFO [com.epam.jwd.core_final.util.PropertyReaderUtil] Loading application properties
+2021-04-28 19:14:55,383 ERROR [com.epam.jwd.core_final.strategy.impl.SpaceshipReaderStrategy] Entity Wolf already exist

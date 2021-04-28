@@ -46,13 +46,18 @@ class ShowMissionsMenu {
 
     private static void displayMissionsList(List<FlightMission> missionList) {
         for (FlightMission mission : missionList) {
-            String nameColor;
-            if (mission.getMissionResult() == MissionResult.FAILED) {
-                nameColor = ConsoleColors.RED_BOLD;
-            } else {
-                nameColor = ConsoleColors.GREEN_BOLD;
+            String nameColor = ConsoleColors.WHITE_BOLD;
+            switch (mission.getMissionResult()) {
+                case FAILED:
+                    nameColor = ConsoleColors.RED_BOLD;
+                    break;
+                case IN_PROGRESS:
+                    nameColor = ConsoleColors.YELLOW_BOLD;
+                    break;
+                case COMPLETED:
+                    nameColor = ConsoleColors.GREEN_BOLD;
+                    break;
             }
-
             System.out.print(nameColor + "id: " + mission.getId() + ", " + mission.getName()
                     + " - " + ConsoleColors.PURPLE_BOLD + mission.getDistance() + ", "
                     + mission.getAssignedSpaceship() + ";\n" + ConsoleColors.RESET);
@@ -77,7 +82,7 @@ class ShowMissionsMenu {
                 break;
             case 2:
                 System.out.println("Enter the distance: ");
-                builder.withDistance(ApplicationMenu.SCANNER.nextInt());
+                builder.withDistance(ApplicationMenu.receiveUserChoose());
                 break;
             case 3:
                 List<FlightMission> missionList = MISSION_SERVICE.findAllMissionsByCriteria(builder.build());

@@ -25,7 +25,7 @@ public class FlightMission extends AbstractBaseEntity {
     private Long distance;
     private Spaceship assignedSpaceship;
     private List<CrewMember> assignedCrew;
-    private MissionResult missionResult;
+    private MissionResult missionResult = MissionResult.IN_PROGRESS;
     private Planet from;
     private Planet to;
 

@@ -4,7 +4,7 @@ import com.epam.jwd.core_final.context.impl.NassaContext;
 import com.epam.jwd.core_final.criteria.Criteria;
 import com.epam.jwd.core_final.criteria.SpaceshipCriteria;
 import com.epam.jwd.core_final.domain.Spaceship;
-import com.epam.jwd.core_final.exception.AssignedOnMissionException;
+import com.epam.jwd.core_final.exception.AssignOnMissionException;
 import com.epam.jwd.core_final.exception.DuplicateEntityException;
 import com.epam.jwd.core_final.service.SpaceshipService;
 
@@ -71,14 +71,14 @@ public class SimpleSpaceshipService implements SpaceshipService {
     }
 
     @Override
-    public void assignSpaceshipOnMission(Spaceship spaceship) throws AssignedOnMissionException {
+    public void assignSpaceshipOnMission(Spaceship spaceship) throws AssignOnMissionException {
         if (spaceship == null) {
-            throw new AssignedOnMissionException("There is no spaceship capable of flying such a distance");
+            throw new AssignOnMissionException("There is no spaceship capable of flying such a distance");
         }
         if (spaceship.isReadyForNextMissions()) {
             spaceship.setReadyForNextMissions(false);
         } else {
-            throw new AssignedOnMissionException("Spaceship is already on mission");
+            throw new AssignOnMissionException("Spaceship is already on mission");
         }
 
     }

@@ -4,11 +4,14 @@ import com.epam.jwd.core_final.context.impl.NassaContext;
 import com.epam.jwd.core_final.criteria.Criteria;
 import com.epam.jwd.core_final.criteria.FlightMissionCriteria;
 import com.epam.jwd.core_final.domain.FlightMission;
+import com.epam.jwd.core_final.domain.MissionResult;
 import com.epam.jwd.core_final.exception.DuplicateEntityException;
 import com.epam.jwd.core_final.service.MissionService;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 import java.util.stream.Collectors;
 
 public class SimpleMissionService implements MissionService {
@@ -105,4 +108,30 @@ public class SimpleMissionService implements MissionService {
 
         return isMissionSuitable;
     }
+
+    public void completeMission(FlightMission flightMission) {
+        flightMission.setMissionResult(MissionResult.COMPLETED);
+        flightMission.getAssignedSpaceship().setReadyForNextMissions(true);
+        flightMission.getAssignedCrew().forEach(crewMember -> crewMember.setReadyForNextMissions(true));
+    }
+
+    public void receiveRandomResultOfMissions() {
+        Collection<FlightMission> listOfMissions = NASSA_CONTEXT.retrieveBaseEntityList(FlightMission.class);
+        for (FlightMission flightMission : listOfMissions) {
+            if (flightMission.getMissionResult() != MissionResult.COMPLETED) {
+                receiveStatusOfMission(flightMission);
+            }
+        }
+    }
+
+    private void receiveStatusOfMission(FlightMission flightMission) {
+        Random random = new Random();
+        int randomValue = random.nextInt(100);
+        if (randomValue <= 20) {
+            flightMission.setMissionResult(MissionResult.FAILED);
+        } else if (randomValue <= 60){
+            completeMission(flightMission);
+        }
+    }
+
 }

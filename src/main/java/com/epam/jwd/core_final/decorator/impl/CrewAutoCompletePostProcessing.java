@@ -34,6 +34,7 @@ public class CrewAutoCompletePostProcessing implements EntityPostProcessor<Fligh
                 throw new IllegalArgumentException("Not enough workers " + entry.getKey().getName());
             for (int i = 0; i < entry.getValue(); i++) {
                 service.assignCrewMemberOnMission(potentialCrewMembers.get(i));
+                crewMembers.add(potentialCrewMembers.get(i));
             }
         }
 
