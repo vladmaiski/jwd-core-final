@@ -1,6 +1,5 @@
-2021-04-28 19:06:23,523 INFO [com.epam.jwd.core_final.util.PropertyReaderUtil] Loading application properties
-2021-04-28 19:06:23,571 ERROR [com.epam.jwd.core_final.strategy.impl.SpaceshipReaderStrategy] Entity Wolf already exist
-2021-04-28 19:12:06,192 INFO [com.epam.jwd.core_final.util.PropertyReaderUtil] Loading application properties
-2021-04-28 19:12:06,229 ERROR [com.epam.jwd.core_final.strategy.impl.SpaceshipReaderStrategy] Entity Wolf already exist
-2021-04-28 19:14:55,340 INFO [com.epam.jwd.core_final.util.PropertyReaderUtil] Loading application properties
-2021-04-28 19:14:55,383 ERROR [com.epam.jwd.core_final.strategy.impl.SpaceshipReaderStrategy] Entity Wolf already exist
+2021-04-28 21:21:46,147 INFO [com.epam.jwd.core_final.json.impl.CrewMembersJSONWriterStrategy] Output info about crew members to crewMembers.json
+2021-04-28 21:21:49,148 ERROR [com.epam.jwd.core_final.json.impl.SpaceshipsJSONWriterStrategy] Problem with output info about spaceships. Check for the output folder: output
+2021-04-28 21:21:49,148 INFO [com.epam.jwd.core_final.json.impl.SpaceshipsJSONWriterStrategy] Output info about spaceships to spaceships.json
+2021-04-28 21:21:51,231 INFO [com.epam.jwd.core_final.json.impl.CrewMembersJSONWriterStrategy] Output info about missions to output
+2021-04-28 21:21:57,169 INFO [com.epam.jwd.core_final.context.ApplicationMenu] Application stop by user

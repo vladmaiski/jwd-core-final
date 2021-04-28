@@ -5,6 +5,10 @@ import com.epam.jwd.core_final.context.impl.menu.NassaApplicationMenu;
 import com.epam.jwd.core_final.domain.CrewMember;
 import com.epam.jwd.core_final.domain.FlightMission;
 import com.epam.jwd.core_final.domain.Spaceship;
+import com.epam.jwd.core_final.json.impl.CrewMembersJSONWriterStrategy;
+import com.epam.jwd.core_final.json.impl.MissionsJSONWriterStrategy;
+import com.epam.jwd.core_final.json.impl.SimpleJSONWriter;
+import com.epam.jwd.core_final.json.impl.SpaceshipsJSONWriterStrategy;
 import com.epam.jwd.core_final.service.impl.SimpleCrewService;
 import com.epam.jwd.core_final.service.impl.SimpleMissionService;
 import com.epam.jwd.core_final.service.impl.SimpleSpaceshipService;
@@ -62,41 +66,18 @@ public class WriteInfoToJSONMenu {
     }
 
     private static void outputCrewMembersToJSON(String outputRootDir) {
-        Collection<CrewMember> crewMembersList = SimpleCrewService.getInstance().findAllCrewMembers();
-        File outputFile = new File("src" + File.separator + "main" + File.separator
-                + "resources" + File.separator + outputRootDir + File.separator + "crewMembers.json");
-        try {
-            OBJECT_MAPPER.writeValue(outputFile, crewMembersList);
-        } catch (IOException e) {
-            LOGGER.error("Problem with output info about crew members. Check for the output folder: " + outputRootDir);
-        }
-        LOGGER.info("Output info about crew members to " + outputFile.getName());
+        SimpleJSONWriter writer = new SimpleJSONWriter(CrewMembersJSONWriterStrategy.getInstance());
+        writer.writeJSON(outputRootDir);
     }
 
     private static void outputSpaceshipsToJSON(String outputRootDir) {
-        Collection<Spaceship> spaceshipsList = SimpleSpaceshipService.getInstance().findAllSpaceships();
-        File outputFile = new File("src" + File.separator + "main" + File.separator
-                + "resources" + File.separator + outputRootDir + File.separator + "spaceships.json");
-        try {
-            OBJECT_MAPPER.writeValue(outputFile, spaceshipsList);
-        } catch (IOException e) {
-            LOGGER.error("Problem with output info about spaceships. Check for the output folder: " + outputRootDir);
-        }
-        LOGGER.info("Output info about spaceships to " + outputFile.getName());
+        SimpleJSONWriter writer = new SimpleJSONWriter(SpaceshipsJSONWriterStrategy.getInstance());
+        writer.writeJSON(outputRootDir);
     }
 
     private static void outputMissionsToJSON(String outputRootDir) {
-        Collection<FlightMission> missionsList = SimpleMissionService.getInstance().findAllMissions();
-        for (FlightMission mission : missionsList) {
-            try {
-                OBJECT_MAPPER.writeValue(new File("src" + File.separator + "main"
-                        + File.separator + "resources" + File.separator + outputRootDir
-                        + File.separator + mission.getName() + ".json"), mission);
-            } catch (IOException e) {
-                LOGGER.error("Problem with output info about all missions. Check for the output folder: " + outputRootDir);
-            }
-        }
-        LOGGER.info("Output info about missions to " + outputRootDir);
+        SimpleJSONWriter writer = new SimpleJSONWriter(MissionsJSONWriterStrategy.getInstance());
+        writer.writeJSON(outputRootDir);
     }
 
 }
