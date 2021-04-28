@@ -7,6 +7,7 @@ import com.epam.jwd.core_final.domain.Rank;
 import com.epam.jwd.core_final.domain.Role;
 import com.epam.jwd.core_final.service.impl.SimpleCrewService;
 import com.epam.jwd.core_final.util.ConsoleColors;
+
 import java.util.List;
 import java.util.Scanner;
 

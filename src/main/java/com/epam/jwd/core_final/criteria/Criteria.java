@@ -10,7 +10,7 @@ public abstract class Criteria<T extends BaseEntity> {
     private final String name;
     private final Long id;
 
-    Criteria(Builder<?> builder){
+    Criteria(Builder<?> builder) {
         this.name = builder.name;
         this.id = builder.id;
     }
@@ -27,7 +27,7 @@ public abstract class Criteria<T extends BaseEntity> {
         private String name;
         private Long id;
 
-        public T withName(String name){
+        public T withName(String name) {
             this.name = name;
             return receiveBuilder();
         }

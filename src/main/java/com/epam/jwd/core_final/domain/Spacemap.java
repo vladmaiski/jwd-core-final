@@ -4,19 +4,26 @@ import java.util.ArrayList;
 
 public class Spacemap {
 
-    private ArrayList<ArrayList<Planet>> planets = new ArrayList<>();
+    private ArrayList<ArrayList<Planet>> planetsMap = new ArrayList<>();
+    private ArrayList<Planet> planets = new ArrayList<>();
 
-    public Spacemap(ArrayList<ArrayList<Planet>> planets) {
-        this.planets = planets;
+    public Spacemap(ArrayList<ArrayList<Planet>> planetsMap) {
+        this.planetsMap = planetsMap;
+        planets = onlyPlanets();
+
     }
 
     public ArrayList<ArrayList<Planet>> getMap() {
-        return planets;
+        return planetsMap;
     }
 
     public ArrayList<Planet> getPlanets() {
+        return planets;
+    }
+
+    private ArrayList<Planet> onlyPlanets() {
         ArrayList<Planet> realPlanets = new ArrayList<>();
-        for (ArrayList<Planet> line : planets) {
+        for (ArrayList<Planet> line : planetsMap) {
             for (Planet planet : line) {
                 if (planet != null) {
                     realPlanets.add(planet);

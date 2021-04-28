@@ -77,7 +77,7 @@ public class SimpleSpaceshipService implements SpaceshipService {
         }
         if (spaceship.isReadyForNextMissions()) {
             spaceship.setReadyForNextMissions(false);
-        }else {
+        } else {
             throw new AssignedOnMissionException("Spaceship is already on mission");
         }
 
@@ -90,7 +90,7 @@ public class SimpleSpaceshipService implements SpaceshipService {
                 .findFirst();
 
         if (optionalSpaceship.isPresent()) {
-            throw new DuplicateEntityException("This entity" + spaceship.getName() + "is already consist");
+            throw new DuplicateEntityException("Entity " + spaceship.getName() + " already exist");
         } else {
             findAllSpaceships().add(spaceship);
             return spaceship;

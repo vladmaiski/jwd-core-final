@@ -22,6 +22,16 @@ public class Spaceship extends AbstractBaseEntity {
         this.crew = crew;
     }
 
+    @Override
+    public String toString() {
+        return "Spaceship{" +
+                "name=" + getName() +
+                ", id=" + getId() +
+                ", crew=" + crew +
+                ", flightDistance=" + flightDistance +
+                ", isReadyForNextMissions=" + isReadyForNextMissions +
+                '}';
+    }
 
     public Map<Role, Short> getCrew() {
         return crew;

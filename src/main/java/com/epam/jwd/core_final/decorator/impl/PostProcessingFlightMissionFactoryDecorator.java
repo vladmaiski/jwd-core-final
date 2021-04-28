@@ -11,7 +11,7 @@ import java.util.List;
 public class PostProcessingFlightMissionFactoryDecorator extends EntityAbstractDecorator<FlightMission> {
 
     List<EntityPostProcessor<FlightMission>> postProcessors = Arrays.asList(SpaceshipAutoCompletePostProcessing.getInstance(),
-                                                                CrewAutoCompletePostProcessing.getInstance());
+            CrewAutoCompletePostProcessing.getInstance());
 
     public PostProcessingFlightMissionFactoryDecorator(EntityFactory<FlightMission> factory) {
         super(factory);

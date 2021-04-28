@@ -27,9 +27,9 @@ public class CrewAutoCompletePostProcessing implements EntityPostProcessor<Fligh
         List<CrewMember> crewMembers = new ArrayList<>();
         SimpleCrewService service = SimpleCrewService.getInstance();
         Map<Role, Short> crew = object.getAssignedSpaceship().getCrew();
-        for (Map.Entry<Role, Short> entry: crew.entrySet()) {
+        for (Map.Entry<Role, Short> entry : crew.entrySet()) {
             List<CrewMember> potentialCrewMembers = service.findAllCrewMembersByCriteria(CrewMemberCriteria.builder().
-                                            withRole(entry.getKey()).isReadyForNextMission(true).build());
+                    withRole(entry.getKey()).isReadyForNextMission(true).build());
             if (potentialCrewMembers.size() < entry.getValue())
                 throw new IllegalArgumentException("Not enough workers " + entry.getKey().getName());
             for (int i = 0; i < entry.getValue(); i++) {

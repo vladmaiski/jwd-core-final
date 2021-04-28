@@ -65,7 +65,7 @@ public class SpaceshipReaderStrategy implements ReadFileStrategy {
 
     private void createSpaceship(String[] spaceshipData) {
         try {
-             Spaceship spaceship = FACTORY.create(
+            Spaceship spaceship = FACTORY.create(
                     spaceshipData[0],
                     Long.parseLong(spaceshipData[1]),
                     parseLineToMap(spaceshipData[2]));

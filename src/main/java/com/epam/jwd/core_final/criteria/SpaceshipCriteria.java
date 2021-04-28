@@ -42,7 +42,7 @@ public class SpaceshipCriteria extends Criteria<Spaceship> {
         private Long flightDistance;
         private Boolean isReadyForNextMission;
 
-        private SpaceshipBuilder(){
+        private SpaceshipBuilder() {
         }
 
         @Override

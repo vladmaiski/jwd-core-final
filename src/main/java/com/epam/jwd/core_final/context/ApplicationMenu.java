@@ -3,6 +3,7 @@ package com.epam.jwd.core_final.context;
 import com.epam.jwd.core_final.context.impl.menu.json.WriteInfoToJSONMenu;
 import com.epam.jwd.core_final.context.impl.menu.mission.AddNewMissionMenu;
 import com.epam.jwd.core_final.context.impl.menu.update.UpdateEntitiesMenu;
+import com.epam.jwd.core_final.context.impl.menu.view.ShowPlanetsMenu;
 import com.epam.jwd.core_final.context.impl.menu.view.ViewEntitiesMenu;
 import com.epam.jwd.core_final.domain.Role;
 import com.epam.jwd.core_final.util.ConsoleColors;
@@ -25,7 +26,8 @@ public interface ApplicationMenu {
         System.out.println("2) View entities");
         System.out.println("3) Write entities to JSON");
         System.out.println("4) Update entities");
-        System.out.println("5) Exit");
+        System.out.println("5) Distance between planets ");
+        System.out.println("6) Exit");
         handleUserInput(receiveUserChoose());
     }
 
@@ -44,6 +46,8 @@ public interface ApplicationMenu {
                 UpdateEntitiesMenu.menu();
                 break;
             case 5:
+                ShowPlanetsMenu.menu();
+            case 6:
                 LOGGER.info("Application stop by user");
                 System.exit(0);
             default:

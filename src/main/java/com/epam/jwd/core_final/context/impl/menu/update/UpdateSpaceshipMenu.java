@@ -4,6 +4,7 @@ import com.epam.jwd.core_final.context.ApplicationMenu;
 import com.epam.jwd.core_final.criteria.SpaceshipCriteria;
 import com.epam.jwd.core_final.domain.Spaceship;
 import com.epam.jwd.core_final.service.impl.SimpleSpaceshipService;
+
 import java.util.Optional;
 
 class UpdateSpaceshipMenu {

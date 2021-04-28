@@ -37,6 +37,20 @@ public class FlightMission extends AbstractBaseEntity {
         this.distance = distance;
     }
 
+    @Override
+    public String toString() {
+        return "FlightMission{" +
+                "name=" + getName() +
+                ", id=" + getId() +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", distance=" + distance +
+                ", assignedSpaceShip=" + assignedSpaceship +
+                ", assignedCrew=" + assignedCrew +
+                ", missionResult=" + missionResult +
+                '}';
+    }
+
     public LocalDateTime getStartDate() {
         return startDate;
     }

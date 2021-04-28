@@ -5,6 +5,7 @@ import com.epam.jwd.core_final.criteria.SpaceshipCriteria;
 import com.epam.jwd.core_final.domain.Spaceship;
 import com.epam.jwd.core_final.service.impl.SimpleSpaceshipService;
 import com.epam.jwd.core_final.util.ConsoleColors;
+
 import java.util.List;
 
 class ShowSpaceshipsMenu {

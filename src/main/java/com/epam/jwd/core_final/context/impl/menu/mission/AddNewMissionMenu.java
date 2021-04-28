@@ -10,6 +10,7 @@ import com.epam.jwd.core_final.factory.impl.FlightMissionFactory;
 import com.epam.jwd.core_final.service.impl.SimpleMissionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Random;
@@ -36,7 +37,7 @@ public class AddNewMissionMenu {
         endDate = startDate.plusDays(missionDistance / 5000);
         try {
             MISSION_SERVICE.createMission(MISSION_FACTORY.create(missionName, startDate, endDate, missionDistance));
-        }catch (IllegalArgumentException | AssignedOnMissionException e) {
+        } catch (IllegalArgumentException | AssignedOnMissionException e) {
             LOGGER.error(e.getMessage());
         }
     }

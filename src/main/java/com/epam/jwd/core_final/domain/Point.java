@@ -2,28 +2,27 @@ package com.epam.jwd.core_final.domain;
 
 public class Point {
 
-    double xValue;
-    double yValue;
+    int xValue;
+    int yValue;
 
-    public Point(double xValue, double yValue) {
+    public Point(int xValue, int yValue) {
         this.xValue = xValue;
         this.yValue = yValue;
     }
 
-    public double getxValue() {
+    public int getXValue() {
         return xValue;
     }
 
-    public double getyValue() {
+    public int getYValue() {
         return yValue;
     }
 
     @Override
     public String toString() {
-        return "Point{" +
-                "xValue=" + xValue +
-                ", yValue=" + yValue +
-                '}';
+        return "Point (" + xValue +
+                ", " + yValue +
+                ')';
     }
 
 }

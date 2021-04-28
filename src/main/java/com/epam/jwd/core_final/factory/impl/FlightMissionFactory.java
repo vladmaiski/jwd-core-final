@@ -21,7 +21,6 @@ public class FlightMissionFactory implements EntityFactory<FlightMission> {
 
     @Override
     public FlightMission create(Object... args) {
-        //todo build(delete after)
         return new FlightMission((String) args[0], (LocalDateTime) args[1], (LocalDateTime) args[2], (Long) args[3]);
     }
 

@@ -13,7 +13,7 @@
         </RollingFile>
     </Appenders>
     <loggers>
-        <root level = "info">
+        <root level="info">
             <AppenderRef ref="RollingFile"/>
         </root>
     </loggers>

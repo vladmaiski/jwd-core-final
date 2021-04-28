@@ -31,7 +31,7 @@ public final class PropertyReaderUtil {
     public static void loadProperties() {
         LOGGER.info("Loading application properties");
         final String propertiesFileName = "src/main/resources/application.properties";
-        try(FileInputStream inputStream = new FileInputStream(propertiesFileName)) {
+        try (FileInputStream inputStream = new FileInputStream(propertiesFileName)) {
             PROPERTIES.load(inputStream);
             populateApplicationProperties();
         } catch (IOException e) {

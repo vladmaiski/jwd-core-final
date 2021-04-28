@@ -22,8 +22,8 @@ public class NassaContext implements ApplicationContext {
     // no getters/setters for them
     private final Collection<CrewMember> crewMembers = new ArrayList<>();
     private final Collection<Spaceship> spaceships = new ArrayList<>();
-    private final Collection<Planet> planetMap = new ArrayList<>();
     private final Collection<FlightMission> missions = new ArrayList<>();
+    private final Spacemap planetMap = new Spacemap(new ArrayList<>());
 
     private final Reader READER = Reader.getInstance();
     private final ApplicationProperties APP_PROPERTIES = (ApplicationProperties) PropertyReaderUtil.getProperties().get("applicationProperties");
@@ -56,7 +56,7 @@ public class NassaContext implements ApplicationContext {
             case "CrewMember":
                 return (Collection<T>) crewMembers;
             case "Planet":
-                return (Collection<T>) planetMap;
+                return (Collection<T>) planetMap.getPlanets();
             case "Spaceship":
                 return (Collection<T>) spaceships;
             case "FlightMission":
@@ -68,6 +68,7 @@ public class NassaContext implements ApplicationContext {
 
     /**
      * You have to read input files, populate collections
+     *
      * @throws InvalidStateException
      */
     @Override
