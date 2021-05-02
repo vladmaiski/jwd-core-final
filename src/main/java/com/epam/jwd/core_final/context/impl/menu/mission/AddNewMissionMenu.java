@@ -1,10 +1,7 @@
 package com.epam.jwd.core_final.context.impl.menu.mission;
 
 import com.epam.jwd.core_final.context.ApplicationMenu;
-import com.epam.jwd.core_final.context.impl.NassaContext;
 import com.epam.jwd.core_final.decorator.impl.PostProcessingFlightMissionFactoryDecorator;
-import com.epam.jwd.core_final.domain.FlightMission;
-import com.epam.jwd.core_final.domain.MissionResult;
 import com.epam.jwd.core_final.exception.AssignOnMissionException;
 import com.epam.jwd.core_final.factory.impl.FlightMissionFactory;
 import com.epam.jwd.core_final.service.impl.SimpleMissionService;
@@ -12,7 +9,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.LocalDateTime;
-import java.util.Collection;
 import java.util.Random;
 
 public class AddNewMissionMenu {

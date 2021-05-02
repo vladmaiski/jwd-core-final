@@ -3,7 +3,6 @@ package com.epam.jwd.core_final.context.impl.menu.view;
 import com.epam.jwd.core_final.context.ApplicationMenu;
 import com.epam.jwd.core_final.criteria.FlightMissionCriteria;
 import com.epam.jwd.core_final.domain.FlightMission;
-import com.epam.jwd.core_final.domain.MissionResult;
 import com.epam.jwd.core_final.service.impl.SimpleMissionService;
 import com.epam.jwd.core_final.util.ConsoleColors;
 

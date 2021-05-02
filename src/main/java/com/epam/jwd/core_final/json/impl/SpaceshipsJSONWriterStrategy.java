@@ -2,7 +2,6 @@ package com.epam.jwd.core_final.json.impl;
 
 import com.epam.jwd.core_final.domain.Spaceship;
 import com.epam.jwd.core_final.json.api.JSONWriter;
-import com.epam.jwd.core_final.service.impl.SimpleCrewService;
 import com.epam.jwd.core_final.service.impl.SimpleSpaceshipService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

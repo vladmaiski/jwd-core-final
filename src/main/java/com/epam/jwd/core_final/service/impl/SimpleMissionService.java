@@ -129,7 +129,7 @@ public class SimpleMissionService implements MissionService {
         int randomValue = random.nextInt(100);
         if (randomValue <= 20) {
             flightMission.setMissionResult(MissionResult.FAILED);
-        } else if (randomValue <= 60){
+        } else if (randomValue <= 60) {
             completeMission(flightMission);
         }
     }

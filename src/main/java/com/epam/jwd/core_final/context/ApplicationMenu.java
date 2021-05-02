@@ -75,17 +75,16 @@ public interface ApplicationMenu {
 
     static int receiveRankOrRoleId() {
         int id;
-        boolean isInputCorrect;
+        boolean incorrect = true;
         do {
             id = receiveUserChoose();
             if (id > Role.values().length || id <= 0) {
-                isInputCorrect = false;
                 System.out.println(ConsoleColors.RED_BOLD + "You've entered wrong number, please try again: "
                         + ConsoleColors.RESET);
             } else {
-                isInputCorrect = true;
+                incorrect = false;
             }
-        } while (!isInputCorrect);
+        } while (incorrect);
         return id;
     }
 }
